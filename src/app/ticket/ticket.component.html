@@ -1,104 +1,54 @@
-<!-- TICKET ENTRADA - SALIDA DEL ESTACIONAMIENTO -->
-<!-- EL TICKET CIERRE DE CAJA SE ARMA EN EL FORM CIERRE CAJA -->
+<div class="ticket">
 
-<!-- BOTON CERRAR MODAL -->
 
-<button
-  type="button"
-  class="close"
-  class="btn btn-primary"
-  (click)="closeModal()"
->
-  <span aria-hidden="true">&times;</span>
-</button>
 
-<!-- INICIO TICKET -->
+    <div class="text-center">
+        <h1> Vinoteca Melies</h1>
+        <hr>
 
-<!-- TITULO DEL TICKET  -->
+        <hr>
+   
 
-<div class="d-flex justify-content-center" id="ticket">
-  <div id="ticket" class="receipt">
-    <div *ngIf="modo !== 'Ticket Salida'">
-      <div class="location">TICKET ENTRADA</div>
-    </div>
-    <div *ngIf="modo === 'Ticket Salida'">
-      <div class="location">TICKET SALIDA</div>
+        <qr-code value="www.vinotecamelies.com.ar" size="300" errorCorrectionLevel="M"></qr-code>
+    
+        <hr>
+        <p><strong>Avda Cabildo 2422 L4</strong></p>
+        <p> Belgrano - CABA </p>
+        <hr>
+
     </div>
 
-    <!-- HEADER -->
-    <app-ticket-header></app-ticket-header>
-
-    <!-- CONTENIDO -->
-
-    <div *ngIf="modo !== 'Ticket Salida'">
-      <!-- Cod Barras / QR -->
-      <br>
-      <br>
-      <br>
-      <div class="containerRotado">
-        <div class="rotado">
-          <div style="text-align: center">
-            >
-            
-            <ngx-barcode6
-              [bc-format]="format"
-              [bc-value]="value"
-              [bc-display-value]="displayValue"
-              [bc-width]="width"
-              [bc-font-size]="fontSize"
-            >
-            </ngx-barcode6>
-          </div>
-        </div>
-      </div>
-    </div>
-    <br>
-      <br>
-      <br>
-      <br>
-    <div class="keepIt">No pierda este ticket</div>
-    <div class="keepIt">Presente cedula para retirar</div>
-
-    <div class="headerTitle">
-      {{ patente }}
-    </div>
-
-    <div id="date">
-      {{ fechaIngreso }}
-      <br />
-      {{ horaIngreso }} hs
-
-      <br />
-
-      Tarifa: {{ tarifaNombre }}
-    </div>
-    <div *ngIf="modo === 'Ticket Salida'">
-      <div class="location">Salida:</div>
-      <div id="date">
-        {{ fechaSalida }}
-      </div>
-      <div id="date">{{ horaSalida }} hs</div>
-      <div class="location">Estadia:</div>
-      <div id="date">{{ estadiaHoras }} hs</div>
-      <div class="location">Importe:</div>
-      <div id="date">${{ saldo }}</div>
-    </div>
-
-    <hr />
-
-    <!-- ESPACIO PARA SEPARAR TICKETS -->
-
-    <br />
-    <br />
-    <br />
-    <br />
+    <!-- <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td>{{ item.name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.price }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">
+            <hr>
+            <p><strong>Total: {{ total }}</strong></p>
+          </td>
+        </tr>
+      </tfoot>
+    </table> -->
+    <hr>
+    <p><strong>Seguinos</strong></p>
+    <p><i class="bi bi-facebook"></i> VinotecaMelies</p>
+    <p><i class="bi bi-instagram"></i> @VinotecaMelies</p>
+    <p><i class="bi bi-envelope-fill"></i> vinotecamelies@gmail.com</p>
   </div>
-</div>
 
-<!-- FIN TICKET -->
-
-<!-- BOTONES IMPRIMIR Y DISMISS -->
-
-<button [print]="['ticket']" (click)="activeModal.close()">Confirma</button>
-<button (click)="closeModal()">Cancela</button>
-
+  <div class="no-print">
+    <button (click)="print()">Print</button>
+  </div>

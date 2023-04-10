@@ -1,0 +1,27 @@
+.ticket {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid black;
+    width: 300px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: left;
+  }
+  
+  tfoot p {
+    font-weight: bold;
+    text-align: right;
+  }
+
+  @media print {
+    .no-print {
+      display: none;
+    }
+  }
